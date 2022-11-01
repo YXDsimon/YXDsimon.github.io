@@ -13,7 +13,7 @@ Because most stl vessels(e.g. vector) put their elements on the heap, that is to
 1. This violates the RAII principle because after copying elements' address to another vessel, two vessels have accesses to the same memory. If one vessel's detructor is called, both vessel would lose their elements.  If you set the para's element pointer as null, this still violates the RAII.
 1. You can't pass rvalue to this function because you don't have const.
 
-### Occassions that std::move() is useful:
+### Occassions where std::move() is useful:
 
 1. Push_back(vector), you want to insert an vessel into a vessel whose element type is the type of former vessel. And you don't need this single element after insertion(you access it by indexing the vessel instead).
 2. You pass an rvalue to a function and want to initialize a new object using it as parameter. Because after passing into a function, an rvalue is transformed into lvalue, so you have to use move() to transform the parameter into rvalue first to avoid copy.
