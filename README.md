@@ -17,3 +17,14 @@ Because most stl vessels(e.g. vector) put their elements on the heap, that is to
 
 1. Push_back(vector), you want to insert an vessel into a vessel whose element type is the type of former vessel. And you don't need this single element after insertion(you access it by indexing the vessel instead).
 2. You pass an rvalue to a function and want to initialize a new object using it as parameter. Because after passing into a function, an rvalue is transformed into lvalue, so you have to use move() to transform the parameter into rvalue first to avoid copy.
+
+## LLVM
+
+![image-20221119163234663](/Users/simon/Library/Application Support/typora-user-images/image-20221119163234663.png)
+
+LLVM does the same thing that GCC does, it translates C/C++ code into machine code. However, LLVM is modular. It comprises 3 parts: frontend, middleend, and backend. So we can modify the frontend of it to make it able to compile our own languages, such as Apple's swift.
+
+LLVM has a special virtual language called LLVM IR(LLVM Intermediate Representation). 
+
+Also, you can't use GCC compiled programs to make money, cause all programs compiled by GCC is free. You can only use LLVM.
+
